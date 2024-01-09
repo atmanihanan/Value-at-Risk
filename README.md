@@ -40,7 +40,7 @@ where $\mu = \frac{W_0-\mathbb{E}[W] }{W_0}$ is the expected return on the portf
 
 There are two main types of methods to estimate VaR: parametric methods and non-parametric methods.
 \\
-###Non-parametric methods
+### Non-parametric methods
 Non-parametric methods for estimating Value at Risk (VaR), such as the historical method and some applications of the Monte Carlo method, provide a flexible approach without the need to specify a particular distribution of returns. The historical method relies simply on ranking past returns, offering ease of application. Its primary advantage lies in its intuitive nature and the fact that it does not require distributional assumptions. However, it may lack precision, especially when market conditions change dramatically.
 
  The Monte Carlo method, while it can be used in a non-parametric manner, is often implemented with parametric mathematical models to simulate financial returns. The advantage of the Monte Carlo method lies in its flexibility to model complex scenarios, but it can be sensitive to the correct specification of the underlying model. Additionally, it may be computationally and resource-intensive.
@@ -52,10 +52,10 @@ The parametric method for estimating Value at Risk (VaR) relies on the mathemati
 When returns do not adhere to a normal distribution, the parametric method can lead to biased VaR estimates. Financial markets often exhibit characteristics of heavy tails, meaning that extreme events occur more frequently than predicted by a normal distribution. By neglecting these heavy tails, the parametric method may underestimate the actual risk, especially during periods of increased volatility or financial crises.
 
 While the parametric method offers simplicity and ease of application, it is crucial to be aware of its limitations. Investors and risk managers should exercise caution when using this approach, recognizing that market conditions may deviate significantly from the assumption of normality.
-\cite{6be28a69-688c-3823-bc28-6e115cee45cc}
 
 
-###Methods to Estimate the Cutoff Return and VaR
+
+### Methods to Estimate the Cutoff Return and VaR
 
 In this section, we will model returns and VaR using both the normal distribution and the Student's t-distribution to compare the precision of VaR estimates.\\
 First, let's attempt to model the returns.\\
@@ -92,9 +92,9 @@ Let's substitute equation $(2.5)$ into equation $(2.3)$ to find an estimator of 
  $$\text{VaR-n} = -W0*\Psi^{-1}(1-c)*\sigma$$
 We are looking for $z_{\alpha}$ in the standard normal distribution table corresponding to the value of $\Psi^{-1}(1-c)$.\\
 Then, 
-\begin{tcolorbox}
-$$\textbf{VaR-n} = -W0*z_{\alpha}*\sigma$$
-\end{tcolorbox}
+
+$$VaR-n = -W0*z_{\alpha}*\sigma$$
+
 
 ### VaR Estimation Using Student's t-distribution (VaR-t, VaR-x)
 In this section, we will model VaR using the Student's t-distribution. The question that arises is how to choose the degree of freedom for this distribution. We will address this question by estimating the degrees of freedom of the t-distribution using two different methods. This will lead to two distinct VaR models, denoted as VaR-t and VaR-x.\\
@@ -181,13 +181,12 @@ Substitute the expression for $\beta$ into equation (2.6):
 With $t_{\alpha,n}= F^{-1}(\alpha)$. We find it in the standard Student's t-distribution table with n degrees of freedom.\\
 Let's substitute equation $(2.9)$  into equation (2.3) to determine an estimator for the VaR, which we will call VaR-t:
 
-\begin{tcolorbox}
-$$\textbf{VaR-t} = -W0*t_{\alpha,n} \sigma\sqrt{\frac{3+K}{3+2K}}$$
-\end{tcolorbox}
+$$VaR-t = -W0*t_{\alpha,n} \sigma\sqrt{\frac{3+K}{3+2K}}$$
+
 
 ### Var-x
 
-The VaR-x  model\cite{chu2006}, as introduced by Huisman et al. (1998), offers the advantage of incorporating asymmetry by deriving VaR estimates from asset returns on the respective side of the distribution. To assess downside risk, for instance, this approach initiates by determining the tail index of the left tail of the returns distribution. Let \(x(i)\) represent the $i-th$ ascending order statistic of the absolute left-tail returns such that: \(x(i) > x(i-1)\) for \(i = 2, \ldots, N\) N is the size of the sample. Hill (1975) proposed an estimator for the tail index \(\gamma(k)\) as follows:
+The VaR-x  as introduced by Huisman et al. (1998), offers the advantage of incorporating asymmetry by deriving VaR estimates from asset returns on the respective side of the distribution. To assess downside risk, for instance, this approach initiates by determining the tail index of the left tail of the returns distribution. Let \(x(i)\) represent the $i-th$ ascending order statistic of the absolute left-tail returns such that: \(x(i) > x(i-1)\) for \(i = 2, \ldots, N\) N is the size of the sample. Hill (1975) proposed an estimator for the tail index \(\gamma(k)\) as follows:
 
 $$\gamma(k) =\frac{1}{k}\sum_{j=1}^{k}ln(x(N-j+1))-ln(x(N-k))$$
 where $k$ denotes as the number of tail observations.\\
@@ -224,6 +223,6 @@ Substitute the expression for $\beta$ into equation (2.6):
 measure for the confidence level $c$. Plugging the expression for $R_{c}$ into equation  (2.3), we
 obtain the VaR-x estimate for the VaR as:
 
-\begin{tcolorbox}
-$$\textbf{VaR-x} = -W0*t_{\alpha, n}^{*}\frac{\sigma}{\sqrt{\frac{n}{n-2}}}$$
-\end{tcolorbox}
+
+$$VaR-x = -W0*t_{\alpha, n}^{*}\frac{\sigma}{\sqrt{\frac{n}{n-2}}}$$
+
