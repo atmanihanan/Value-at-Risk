@@ -10,12 +10,13 @@ The commonly used parametric method for VaR estimation relies on the assumption 
 - Explore the impact of the Student-t distribution on the accuracy of VaR estimation.
 - Highlight advantages compared to the standard parametric method.
 - Understand how the Student-t distribution better captures the reality of market movements.
-\subsection{Definition of Value-at-Risk (VaR) }
-\textbf{Definition 2.1.1:} The Value at Risk (VaR) is a quantitative measure of financial risk used to estimate the maximum potential loss of an asset portfolio, investment, or open position over a specific period, with a given level of confidence. In other words, VaR estimates the maximum value of a potential loss that should not be exceeded during a specified period, along with the probability of this occurrence.\\
+- 
+ ## methodology
+ ### Definition of Value-at-Risk (VaR) 
+The Value at Risk (VaR) is a quantitative measure of financial risk used to estimate the maximum potential loss of an asset portfolio, investment, or open position over a specific period, with a given level of confidence. In other words, VaR estimates the maximum value of a potential loss that should not be exceeded during a specified period, along with the probability of this occurrence.\\
 
-\vspace{0.2cm}
-\noindent In addition to this definition, PHILIPPE JORION an expert in financial risk management, proposes a specific formulation:\\
-\noindent\textbf{Definition 2.1.2:} \cite{6be28a69-688c-3823-bc28-6e115cee45cc}the worst expected loss over a target horizon within a given confidence level.
+t In addition to this definition, PHILIPPE JORION an expert in financial risk management, proposes a specific formulation:\\
+the worst expected loss over a target horizon within a given confidence level.
 \\
 Following Jorion, we define $W_0$ as the initial investment and $R$ as the expected return over the target horizon. $W_c$ is defined as the lowest portfolio value at the given confidence level $c$, that is, the value of the portfolio should not fall below $W_c$ with probability $c$. VaR is defined as the dollar loss relative to the expected mean value of the portfolio:
 
@@ -35,26 +36,26 @@ gives us the VaR measured as the loss relative to the mean:
 
    
 
-\noindent where $\mu = \frac{W_0-\mathbb{E}[W] }{W_0}$ is the expected return on the portfolio for the target horizon. \\
-\vspace{0.2cm}
+where $\mu = \frac{W_0-\mathbb{E}[W] }{W_0}$ is the expected return on the portfolio for the target horizon. \\
+
 There are two main types of methods to estimate VaR: parametric methods and non-parametric methods.
 \\
-\subsubsection{Non-parametric methods}
+###Non-parametric methods
 Non-parametric methods for estimating Value at Risk (VaR), such as the historical method and some applications of the Monte Carlo method, provide a flexible approach without the need to specify a particular distribution of returns. The historical method relies simply on ranking past returns, offering ease of application. Its primary advantage lies in its intuitive nature and the fact that it does not require distributional assumptions. However, it may lack precision, especially when market conditions change dramatically.
 
-\noindent The Monte Carlo method, while it can be used in a non-parametric manner, is often implemented with parametric mathematical models to simulate financial returns. The advantage of the Monte Carlo method lies in its flexibility to model complex scenarios, but it can be sensitive to the correct specification of the underlying model. Additionally, it may be computationally and resource-intensive.
+ The Monte Carlo method, while it can be used in a non-parametric manner, is often implemented with parametric mathematical models to simulate financial returns. The advantage of the Monte Carlo method lies in its flexibility to model complex scenarios, but it can be sensitive to the correct specification of the underlying model. Additionally, it may be computationally and resource-intensive.
 
-\noindent In summary, non-parametric methods offer an alternative to parametric methods, avoiding strict distributional assumptions. However, they may be sensitive to past market conditions, lack precision in unexpected situations, and the Monte Carlo method may require meticulous model management to ensure reliable results, making it more complex.
+ In summary, non-parametric methods offer an alternative to parametric methods, avoiding strict distributional assumptions. However, they may be sensitive to past market conditions, lack precision in unexpected situations, and the Monte Carlo method may require meticulous model management to ensure reliable results, making it more complex.
 \subsubsection{Parametric method}
 The parametric method for estimating Value at Risk (VaR) relies on the mathematical modeling of financial returns by assuming a specific distribution. This method is a relatively simple approach, but its main drawback lies in the numerous assumptions it makes, particularly the assumption of normality in financial returns. This assumption posits that the fluctuations in returns follow a Gaussian distribution, which can be an overly simplified representation of the reality of financial markets.
 
-\noindent When returns do not adhere to a normal distribution, the parametric method can lead to biased VaR estimates. Financial markets often exhibit characteristics of heavy tails, meaning that extreme events occur more frequently than predicted by a normal distribution. By neglecting these heavy tails, the parametric method may underestimate the actual risk, especially during periods of increased volatility or financial crises.
+When returns do not adhere to a normal distribution, the parametric method can lead to biased VaR estimates. Financial markets often exhibit characteristics of heavy tails, meaning that extreme events occur more frequently than predicted by a normal distribution. By neglecting these heavy tails, the parametric method may underestimate the actual risk, especially during periods of increased volatility or financial crises.
 
-\noindent While the parametric method offers simplicity and ease of application, it is crucial to be aware of its limitations. Investors and risk managers should exercise caution when using this approach, recognizing that market conditions may deviate significantly from the assumption of normality.
+While the parametric method offers simplicity and ease of application, it is crucial to be aware of its limitations. Investors and risk managers should exercise caution when using this approach, recognizing that market conditions may deviate significantly from the assumption of normality.
 \cite{6be28a69-688c-3823-bc28-6e115cee45cc}
 
 
-\subsection{Methods to Estimate the Cutoff Return and VaR}
+###Methods to Estimate the Cutoff Return and VaR
 
 In this section, we will model returns and VaR using both the normal distribution and the Student's t-distribution to compare the precision of VaR estimates.\\
 First, let's attempt to model the returns.\\
@@ -64,8 +65,8 @@ level $c$, and is found from the following integral for the distribution of expe
 1-c = \int_{-\infty}^{R_{c}}f(r)dr
 \end{equation}
 
-\subsubsection{VaR Estimation Using the Normal Distribution
- (Var-n)}
+### VaR Estimation Using the Normal Distribution  (Var-n)
+
 if we assume that expected  returns have a normal probability density, this is equivalent  that returns follow a normal distribution with parameters $\mu$ and $\sigma^2$,
 $$R\sim N(\mu, \sigma^2)$$
 with, 
@@ -95,16 +96,15 @@ Then,
 $$\textbf{VaR-n} = -W0*z_{\alpha}*\sigma$$
 \end{tcolorbox}
 
-\subsubsection{VaR Estimation Using Student's t-distribution (VaR-t, VaR-x)}
+### VaR Estimation Using Student's t-distribution (VaR-t, VaR-x)
 In this section, we will model VaR using the Student's t-distribution. The question that arises is how to choose the degree of freedom for this distribution. We will address this question by estimating the degrees of freedom of the t-distribution using two different methods. This will lead to two distinct VaR models, denoted as VaR-t and VaR-x.\\
 \textbf{Definiton 2.1.3 :}
-
-\noindent Let $Z$ be a random variable with a centered and reduced normal distribution and let $U$ be a variable independent of $Z$ and distributed according to the $\chi^2$ distribution with $k$ degrees of freedom. By definition, the variable
+Let $Z$ be a random variable with a centered and reduced normal distribution and let $U$ be a variable independent of $Z$ and distributed according to the $\chi^2$ distribution with $k$ degrees of freedom. By definition, the variable
 $$T= \frac{Z}{\sqrt{\frac{U}{n}}},$$
 follows Student's distribution with $n$ degrees of freedom.\\
 We denote this distribution as $\mathcal{T}(n)$.
 \\
-\textbf{Propertie 2.1.1:}\\
+####Propertie 2.1.1:\\
 1) The random variable $T\sim \mathcal{T}(n)$ has an even density, making this distribution symmetric,
 
 \[
@@ -131,7 +131,7 @@ degrees of freedom.
 \end{itemize}
 
 
-\noindent Let's assume that returns follow a non-central Student's t-distribution, with a parameter $\mu$ equal to the mean of the expectded returns and a degree of freedom $n$. 
+Let's assume that returns follow a non-central Student's t-distribution, with a parameter $\mu$ equal to the mean of the expectded returns and a degree of freedom $n$. 
  
 \noindent Let's replace the density of $R$ in Equation $(2.4)$.
 \\
@@ -151,13 +151,12 @@ Finally, \begin{equation}
 However, the parameter that remains unknown here is $n$
 
 
-\noindent To estimate the value of $n$, we will use two methods, which are given as follows:
+ To estimate the value of $n$, we will use two methods, which are given as follows:
    
 
 
 
-   
-\subsubsection{Var-t}
+### Var-t
 In this model, we opt for the method of moments to express the mean, variance, and excess kurtosis in the following manner: 
 \\
  $$\mathbb{E}(R) = \mu$$
@@ -186,7 +185,7 @@ Let's substitute equation $(2.9)$  into equation (2.3) to determine an estimator
 $$\textbf{VaR-t} = -W0*t_{\alpha,n} \sigma\sqrt{\frac{3+K}{3+2K}}$$
 \end{tcolorbox}
 
-\subsubsection{Var-x}
+### Var-x
 
 The VaR-x  model\cite{chu2006}, as introduced by Huisman et al. (1998), offers the advantage of incorporating asymmetry by deriving VaR estimates from asset returns on the respective side of the distribution. To assess downside risk, for instance, this approach initiates by determining the tail index of the left tail of the returns distribution. Let \(x(i)\) represent the $i-th$ ascending order statistic of the absolute left-tail returns such that: \(x(i) > x(i-1)\) for \(i = 2, \ldots, N\) N is the size of the sample. Hill (1975) proposed an estimator for the tail index \(\gamma(k)\) as follows:
 
@@ -197,15 +196,14 @@ the estimator $\gamma(k)$.\\
 
 \noindent However, the Hill estimator faces a significant bias issue, stemming from the challenge of determining an appropriate value for \( k \) that allows an unbiased estimate of \( \gamma(k) \). This complexity arises because \( k \) plays a crucial role in bias correction for the Hill estimator, and its selection can be intricate.\\
 
-\noindent To address this limitation, Huisman et al. (2001) proposed a modified version of the Hill estimator. This modification aims to correct the bias by carefully observing variations in the bias of the Hill estimator as the number of tail observations increases up to a specific threshold . It is noteworthy that  number of tail observations is defined as equal to half of the sample size (i.e., ( Number of tail observations  $= \frac{N}{2} $)), emphasizing its critical role in the bias correction process\cite{6be28a69-688c-3823-bc28-6e115cee45cc}.\\
+To address this limitation, Huisman et al. (2001) proposed a modified version of the Hill estimator. This modification aims to correct the bias by carefully observing variations in the bias of the Hill estimator as the number of tail observations increases up to a specific threshold . It is noteworthy that  number of tail observations is defined as equal to half of the sample size (i.e., ( Number of tail observations  $= \frac{N}{2} $)), emphasizing its critical role in the bias correction process\cite{6be28a69-688c-3823-bc28-6e115cee45cc}.\\
 
-\noindent The tail index estimator proposed by Huisman and  al. (2001) is:
+ The tail index estimator proposed by Huisman and  al. (2001) is:
 
 $$\gamma(k)= \beta_0 + b_1k+\epsilon(k), \:\: k =1,...,N/2,$$
 
 
-
-\noindent The intercept $\beta_0 $  stands as the optimal estimation for the tail index. \\
+The intercept $\beta_0 $  stands as the optimal estimation for the tail index. \\
 \noindent The reciprocal of the estimated $\beta_0$  aligns with the degrees of freedom within the Student-t distribution. (i.e $n = \frac{1}{\beta_0})$
 \\
 the mean $\mu$ and variance $\sigma^2$ of the yield distribution are estimated.\\
@@ -222,7 +220,7 @@ Substitute the expression for $\beta$ into equation (2.6):
 
 
 
-\noindent The value $R_{c}$ then equals the cuto return needed to calculate the VaR-x
+ The value $R_{c}$ then equals the cuto return needed to calculate the VaR-x
 measure for the confidence level $c$. Plugging the expression for $R_{c}$ into equation  (2.3), we
 obtain the VaR-x estimate for the VaR as:
 
