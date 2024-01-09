@@ -89,7 +89,7 @@ R_{c} = \Psi^{-1}(1-c)*\sigma+\mu
 \end{equation}
 Let's substitute equation $(2.5)$ into equation $(2.3)$ to find an estimator of the VaR, which we will denote as VaR-n.
 
- $$\text{VaR-n} = -W0*\Psi^{-1}(1-c)*\sigma$$
+ $$ VaR-n = -W0*\Psi^{-1}(1-c)*\sigma$$
 We are looking for $z_{\alpha}$ in the standard normal distribution table corresponding to the value of $\Psi^{-1}(1-c)$.\\
 Then, 
 
@@ -104,7 +104,7 @@ $$T= \frac{Z}{\sqrt{\frac{U}{n}}},$$
 follows Student's distribution with $n$ degrees of freedom.\\
 We denote this distribution as $\mathcal{T}(n)$.
 \\
-####Propertie 2.1.1:\\
+#### Propertie 2.1.1:\\
 1) The random variable $T\sim \mathcal{T}(n)$ has an even density, making this distribution symmetric,
 
 \[
