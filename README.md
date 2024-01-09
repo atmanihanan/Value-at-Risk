@@ -84,9 +84,8 @@ Then, $$1-c = \Psi(\frac{R_{c}-\mu}{\sigma})$$
 $\Psi$ is the CDF of normal distribution.\\
 Then, $$\Psi^{-1}(1-c) =\frac{R_{c}-\mu}{\sigma} $$
 Finally,
-\begin{equation}
-R_{c} = \Psi^{-1}(1-c)*\sigma+\mu
-\end{equation}
+$$R_{c} = \Psi^{-1}(1-c)*\sigma+\mu$$
+
 Let's substitute equation $(2.5)$ into equation $(2.3)$ to find an estimator of the VaR, which we will denote as VaR-n.
 
  $$ VaR-n = -W0*\Psi^{-1}(1-c)*\sigma$$
