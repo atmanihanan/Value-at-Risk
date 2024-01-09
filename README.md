@@ -88,7 +88,7 @@ $$R_{c} = \Psi^{-1}(1-c)*\sigma+\mu$$
 
 Let's substitute equation $(2.5)$ into equation $(2.3)$ to find an estimator of the VaR, which we will denote as VaR-n.
 
- $$ VaR-n = -W0*\Psi^{-1}(1-c)*\sigma$$
+ $$ VaR-n = -W0*\Psi^{-1}(1-c)*\sigma $$
 We are looking for $z_{\alpha}$ in the standard normal distribution table corresponding to the value of $\Psi^{-1}(1-c)$.\\
 Then, 
 
